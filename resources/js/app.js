@@ -33,14 +33,13 @@ const app = createApp({
 
 app.config.globalProperties.$http = axios.create();
 
-let proxyPath = window.Horizon.proxy_path;
-window.Horizon.basePath = proxyPath + '/' + window.Horizon.path;
+window.Horizon.basePath = '/' + window.Horizon.path;
 
 let routerBasePath = window.Horizon.basePath + '/';
 
 if (window.Horizon.path === '' || window.Horizon.path === '/') {
-    routerBasePath = proxyPath + '/';
-    window.Horizon.basePath = proxyPath;
+    routerBasePath = '/';
+    window.Horizon.basePath = '';
 }
 
 const router = createRouter({
